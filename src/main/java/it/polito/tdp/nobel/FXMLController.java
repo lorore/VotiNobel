@@ -37,6 +37,11 @@ public class FXMLController {
     	txtResult.clear();
     	try {
     		int numeroCrediti = Integer.parseInt(txtInput.getText());
+    		
+    		if(numeroCrediti<=0) {
+    			txtResult.setText("Inserire un numero di crediti > 0");
+    			return;
+    		}
     			
     		long start = System.currentTimeMillis();
     		Set<Esame> voti = model.calcolaSottoinsiemeEsami(numeroCrediti);
